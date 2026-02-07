@@ -1,0 +1,108 @@
+/* App-specific styles */
+
+/* Smooth scroll behavior */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Custom scrollbar for webkit browsers */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #F5F5F7;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #D2D2D7;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #86868B;
+}
+
+/* Focus styles for accessibility */
+*:focus-visible {
+  outline: 2px solid #0071E3;
+  outline-offset: 2px;
+}
+
+/* Image loading placeholder */
+img {
+  background: linear-gradient(135deg, #F5F5F7 0%, #E8E8ED 100%);
+}
+
+/* Prevent layout shift */
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+/* Hardware acceleration for animated elements */
+.will-change-transform {
+  will-change: transform;
+}
+
+.will-change-opacity {
+  will-change: opacity;
+}
+
+/* GPU acceleration */
+.gpu-accelerate {
+  transform: translateZ(0);
+  backface-visibility: hidden;
+}
+
+/* Prevent text selection on interactive elements */
+.no-select {
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Touch action optimization */
+.touch-pan-y {
+  touch-action: pan-y;
+}
+
+/* Responsive typography scaling */
+@media (max-width: 640px) {
+  .text-hero {
+    font-size: clamp(36px, 12vw, 48px);
+  }
+  
+  .text-section {
+    font-size: clamp(28px, 8vw, 32px);
+  }
+  
+  .text-subsection {
+    font-size: clamp(20px, 6vw, 24px);
+  }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .btn-primary {
+    border: 2px solid currentColor;
+  }
+  
+  .bento-card {
+    border: 1px solid currentColor;
+  }
+}
+
+/* Print styles */
+@media print {
+  .glass-nav,
+  .btn-primary,
+  .btn-secondary {
+    display: none;
+  }
+  
+  * {
+    animation: none !important;
+    transition: none !important;
+  }
+}
