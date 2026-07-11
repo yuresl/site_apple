@@ -1,39 +1,39 @@
-import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const features = [
   {
     id: 1,
-    title: 'Photonic Engine',
+    title: "Mecanismo Fotônico",
     description:
-      'Our most powerful image signal processor delivers unprecedented detail, color, and clarity. Every pixel is optimized for maximum fidelity.',
-    stat: '2x',
-    statLabel: 'better low-light performance',
-    image: '/feature-camera.jpg',
-    imagePosition: 'left',
+      "Nosso processador de sinal de imagem mais poderoso oferece detalhes, cores e clareza sem precedentes. Cada pixel é otimizado para fidelidade máxima.",
+    stat: "2x",
+    statLabel: "melhor desempenho em pouca luz",
+    image: "/feature-camera.jpg",
+    imagePosition: "left",
   },
   {
     id: 2,
-    title: 'Cinematic Mode',
+    title: "Modo Cinema",
     description:
-      'Now in 4K Dolby Vision. Automatically shift focus to create cinema-grade depth effects that bring your videos to life.',
-    stat: '4K',
-    statLabel: '@ 30fps with Dolby Vision',
-    image: '/feature-video.jpg',
-    imagePosition: 'right',
+      "Agora em 4K Dolby Vision. Mude automaticamente o foco para criar efeitos de profundidade com qualidade de cinema que dão vida aos seus vídeos.",
+    stat: "4K",
+    statLabel: "a 30 qps com Dolby Vision",
+    image: "/feature-video.jpg",
+    imagePosition: "right",
   },
   {
     id: 3,
-    title: 'ProRes Video',
+    title: "Vídeo ProRes",
     description:
-      'Professional video format for maximum color fidelity and post-production flexibility. Edit with the same tools used in Hollywood.',
-    stat: 'Up to 4K60',
-    statLabel: 'ProRes recording',
-    image: '/feature-prores.jpg',
-    imagePosition: 'left',
+      "Formato de vídeo profissional para máxima fidelidade de cores e flexibilidade na pós-produção. Edite com as mesmas ferramentas usadas em Hollywood.",
+    stat: "Até 4K60",
+    statLabel: "Gravação ProRes",
+    image: "/feature-prores.jpg",
+    imagePosition: "left",
   },
 ];
 
@@ -52,42 +52,42 @@ export default function Features() {
           opacity: 1,
           y: 0,
           duration: 0.7,
-          ease: 'expo.out',
+          ease: "expo.out",
           scrollTrigger: {
             trigger: headerRef.current,
-            start: 'top 80%',
-            toggleActions: 'play none none reverse',
+            start: "top 80%",
+            toggleActions: "play none none reverse",
           },
-        }
+        },
       );
 
       // Feature sections animation
       featureRefs.current.forEach((featureRef, index) => {
         if (!featureRef) return;
 
-        const image = featureRef.querySelector('.feature-image');
-        const content = featureRef.querySelector('.feature-content');
-        const stat = featureRef.querySelector('.feature-stat');
-        const isLeft = features[index].imagePosition === 'left';
+        const image = featureRef.querySelector(".feature-image");
+        const content = featureRef.querySelector(".feature-content");
+        const stat = featureRef.querySelector(".feature-stat");
+        const isLeft = features[index].imagePosition === "left";
 
         // Image reveal with clip-path
         gsap.fromTo(
           image,
           {
-            clipPath: 'circle(0% at 50% 50%)',
+            clipPath: "circle(0% at 50% 50%)",
             opacity: 0,
           },
           {
-            clipPath: 'circle(100% at 50% 50%)',
+            clipPath: "circle(100% at 50% 50%)",
             opacity: 1,
             duration: 0.9,
-            ease: 'power3.out',
+            ease: "power3.out",
             scrollTrigger: {
               trigger: featureRef,
-              start: 'top 70%',
-              toggleActions: 'play none none reverse',
+              start: "top 70%",
+              toggleActions: "play none none reverse",
             },
-          }
+          },
         );
 
         // Content slide in
@@ -101,13 +101,13 @@ export default function Features() {
             opacity: 1,
             x: 0,
             duration: 0.7,
-            ease: 'expo.out',
+            ease: "expo.out",
             scrollTrigger: {
               trigger: featureRef,
-              start: 'top 65%',
-              toggleActions: 'play none none reverse',
+              start: "top 65%",
+              toggleActions: "play none none reverse",
             },
-          }
+          },
         );
 
         // Stat counter animation
@@ -119,35 +119,35 @@ export default function Features() {
               opacity: 1,
               scale: 1,
               duration: 0.5,
-              ease: 'back.out(1.7)',
+              ease: "back.out(1.7)",
               scrollTrigger: {
                 trigger: stat,
-                start: 'top 80%',
-                toggleActions: 'play none none reverse',
+                start: "top 80%",
+                toggleActions: "play none none reverse",
               },
-            }
+            },
           );
         }
 
         // Parallax effect
         gsap.to(image, {
           y: -30,
-          ease: 'none',
+          ease: "none",
           scrollTrigger: {
             trigger: featureRef,
-            start: 'top bottom',
-            end: 'bottom top',
+            start: "top bottom",
+            end: "bottom top",
             scrub: 1,
           },
         });
 
         gsap.to(content, {
           y: -50,
-          ease: 'none',
+          ease: "none",
           scrollTrigger: {
             trigger: featureRef,
-            start: 'top bottom',
-            end: 'bottom top',
+            start: "top bottom",
+            end: "bottom top",
             scrub: 1,
           },
         });
@@ -167,11 +167,11 @@ export default function Features() {
         {/* Section Header */}
         <div ref={headerRef} className="text-center mb-20 md:mb-28">
           <h2 className="text-section text-[#1D1D1F] mb-4">
-            A camera system that captures more.
+            Um sistema de câmera que captura mais.
           </h2>
           <p className="text-body-large max-w-2xl mx-auto">
-            Our most advanced camera system ever. With unprecedented detail,
-            color accuracy, and low-light performance.
+            Nosso sistema de câmera mais avançado até hoje. Com detalhes sem
+            precedentes, precisão de cores e desempenho em pouca luz.
           </p>
         </div>
 
@@ -180,15 +180,17 @@ export default function Features() {
           {features.map((feature, index) => (
             <div
               key={feature.id}
-              ref={(el) => { featureRefs.current[index] = el; }}
+              ref={(el) => {
+                featureRefs.current[index] = el;
+              }}
               className={`grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-16 items-center ${
-                feature.imagePosition === 'right' ? 'lg:flex-row-reverse' : ''
+                feature.imagePosition === "right" ? "lg:flex-row-reverse" : ""
               }`}
             >
               {/* Image */}
               <div
                 className={`feature-image relative overflow-hidden rounded-3xl ${
-                  feature.imagePosition === 'right' ? 'lg:order-2' : ''
+                  feature.imagePosition === "right" ? "lg:order-2" : ""
                 }`}
               >
                 <div className="aspect-[3/2] overflow-hidden">
@@ -203,7 +205,7 @@ export default function Features() {
                   className="absolute inset-0 pointer-events-none"
                   style={{
                     background:
-                      'linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.1) 100%)',
+                      "linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.1) 100%)",
                   }}
                 />
               </div>
@@ -211,7 +213,7 @@ export default function Features() {
               {/* Content */}
               <div
                 className={`feature-content ${
-                  feature.imagePosition === 'right' ? 'lg:order-1' : ''
+                  feature.imagePosition === "right" ? "lg:order-1" : ""
                 }`}
               >
                 <h3 className="text-subsection text-[#1D1D1F] mb-4">
@@ -236,7 +238,7 @@ export default function Features() {
         {/* Connecting SVG Line */}
         <svg
           className="absolute left-1/2 top-[300px] bottom-[300px] w-px hidden lg:block"
-          style={{ transform: 'translateX(-50%)' }}
+          style={{ transform: "translateX(-50%)" }}
         >
           <line
             x1="0"

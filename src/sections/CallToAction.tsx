@@ -1,6 +1,6 @@
-import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -16,7 +16,7 @@ export default function CallToAction() {
     const ctx = gsap.context(() => {
       // Headline word reveal
       if (headlineRef.current) {
-        const words = headlineRef.current.querySelectorAll('.word');
+        const words = headlineRef.current.querySelectorAll(".word");
         gsap.fromTo(
           words,
           { opacity: 0, y: 40 },
@@ -25,13 +25,13 @@ export default function CallToAction() {
             y: 0,
             duration: 0.7,
             stagger: 0.1,
-            ease: 'expo.out',
+            ease: "expo.out",
             scrollTrigger: {
               trigger: headlineRef.current,
-              start: 'top 80%',
-              toggleActions: 'play none none reverse',
+              start: "top 80%",
+              toggleActions: "play none none reverse",
             },
-          }
+          },
         );
       }
 
@@ -43,13 +43,13 @@ export default function CallToAction() {
           opacity: 1,
           y: 0,
           duration: 0.5,
-          ease: 'expo.out',
+          ease: "expo.out",
           scrollTrigger: {
             trigger: subheadlineRef.current,
-            start: 'top 85%',
-            toggleActions: 'play none none reverse',
+            start: "top 85%",
+            toggleActions: "play none none reverse",
           },
-        }
+        },
       );
 
       // CTA buttons pop in
@@ -63,13 +63,13 @@ export default function CallToAction() {
             scale: 1,
             duration: 0.4,
             stagger: 0.1,
-            ease: 'back.out(1.7)',
+            ease: "back.out(1.7)",
             scrollTrigger: {
               trigger: ctaRef.current,
-              start: 'top 85%',
-              toggleActions: 'play none none reverse',
+              start: "top 85%",
+              toggleActions: "play none none reverse",
             },
-          }
+          },
         );
       }
 
@@ -80,23 +80,23 @@ export default function CallToAction() {
         {
           opacity: 1,
           duration: 0.4,
-          ease: 'smooth',
+          ease: "smooth",
           scrollTrigger: {
             trigger: finePrintRef.current,
-            start: 'top 90%',
-            toggleActions: 'play none none reverse',
+            start: "top 90%",
+            toggleActions: "play none none reverse",
           },
-        }
+        },
       );
 
       // Background gradient shift on scroll
       gsap.to(contentRef.current, {
-        backgroundPosition: '100% 100%',
-        ease: 'none',
+        backgroundPosition: "100% 100%",
+        ease: "none",
         scrollTrigger: {
           trigger: sectionRef.current,
-          start: 'top bottom',
-          end: 'bottom top',
+          start: "top bottom",
+          end: "bottom top",
           scrub: 1,
         },
       });
@@ -105,8 +105,8 @@ export default function CallToAction() {
     return () => ctx.revert();
   }, []);
 
-  const headlineText = 'Your new favorite device.';
-  const headlineWords = headlineText.split(' ').map((word, i) => (
+  const headlineText = "Seu novo dispositivo favorito.";
+  const headlineWords = headlineText.split(" ").map((word, i) => (
     <span key={i} className="word inline-block mr-[0.25em]">
       {word}
     </span>
@@ -123,9 +123,10 @@ export default function CallToAction() {
         ref={contentRef}
         className="absolute inset-0"
         style={{
-          background: 'radial-gradient(ellipse at 30% 30%, #F5F5F7 0%, #FFFFFF 50%, #E8E8ED 100%)',
-          backgroundSize: '200% 200%',
-          backgroundPosition: '0% 0%',
+          background:
+            "radial-gradient(ellipse at 30% 30%, #F5F5F7 0%, #FFFFFF 50%, #E8E8ED 100%)",
+          backgroundSize: "200% 200%",
+          backgroundPosition: "0% 0%",
         }}
       />
 
@@ -134,13 +135,15 @@ export default function CallToAction() {
         <div
           className="absolute top-[20%] left-[15%] w-64 h-64 rounded-full animate-float-slow opacity-40"
           style={{
-            background: 'radial-gradient(circle, rgba(0,113,227,0.08) 0%, transparent 70%)',
+            background:
+              "radial-gradient(circle, rgba(0,113,227,0.08) 0%, transparent 70%)",
           }}
         />
         <div
           className="absolute bottom-[20%] right-[15%] w-48 h-48 rounded-full animate-float opacity-30"
           style={{
-            background: 'radial-gradient(circle, rgba(0,113,227,0.06) 0%, transparent 70%)',
+            background:
+              "radial-gradient(circle, rgba(0,113,227,0.06) 0%, transparent 70%)",
           }}
         />
       </div>
@@ -158,22 +161,26 @@ export default function CallToAction() {
           ref={subheadlineRef}
           className="text-xl md:text-2xl text-[#86868B] mb-10"
         >
-          Available starting at <span className="text-[#1D1D1F] font-semibold">$999</span>
+          Disponível a partir de{" "}
+          <span className="text-[#1D1D1F] font-semibold">$999</span>
         </p>
 
-        <div ref={ctaRef} className="flex flex-wrap items-center justify-center gap-4 mb-8">
+        <div
+          ref={ctaRef}
+          className="flex flex-wrap items-center justify-center gap-4 mb-8"
+        >
           <button className="btn-primary px-8 py-4 text-lg animate-float-slow">
-            Buy
+            Comprar
           </button>
           <button className="btn-secondary px-8 py-4 text-lg">
-            Learn more
+            Saiba mais
           </button>
         </div>
 
         <p ref={finePrintRef} className="text-caption">
-          Trade-in credit available.{' '}
+          Crédito de troca disponível.{" "}
           <a href="#" className="text-[#0071E3] hover:underline">
-            Terms apply
+            Sujeito a termos
           </a>
           .
         </p>

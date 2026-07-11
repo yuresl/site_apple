@@ -1,30 +1,36 @@
-import { useEffect, useRef, useState } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { ChevronUp } from 'lucide-react';
+import { useEffect, useRef, useState } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { ChevronUp } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const footerLinks = [
   {
-    title: 'Shop',
-    links: ['Store', 'Mac', 'iPad', 'iPhone', 'Watch', 'Vision', 'AirPods'],
+    title: "Comprar",
+    links: ["Loja", "Mac", "iPad", "iPhone", "Watch", "Vision", "AirPods"],
   },
   {
-    title: 'Account',
-    links: ['Manage Your Apple ID', 'Apple Store Account', 'iCloud.com'],
+    title: "Conta",
+    links: ["Gerenciar seu ID Apple", "Conta da Apple Store", "iCloud.com"],
   },
   {
-    title: 'Entertainment',
-    links: ['Apple One', 'Apple TV+', 'Apple Music', 'Apple Arcade', 'Apple Fitness+'],
+    title: "Entretenimento",
+    links: [
+      "Apple One",
+      "Apple TV+",
+      "Apple Music",
+      "Apple Arcade",
+      "Apple Fitness+",
+    ],
   },
   {
-    title: 'Business',
-    links: ['Apple and Business', 'Shop for Business'],
+    title: "Negócios",
+    links: ["Apple e os Negócios", "Comprar para a sua Empresa"],
   },
   {
-    title: 'Support',
-    links: ['Apple Support', 'Service and Repair', 'User Guides'],
+    title: "Suporte",
+    links: ["Suporte da Apple", "Serviço e Reparo", "Manuais do Usuário"],
   },
 ];
 
@@ -44,17 +50,17 @@ export default function Footer() {
         {
           scaleX: 1,
           duration: 0.6,
-          ease: 'expo.out',
+          ease: "expo.out",
           scrollTrigger: {
             trigger: footerRef.current,
-            start: 'top 90%',
-            toggleActions: 'play none none reverse',
+            start: "top 90%",
+            toggleActions: "play none none reverse",
           },
-        }
+        },
       );
 
       // Columns staggered animation
-      const columns = columnsRef.current?.querySelectorAll('.footer-column');
+      const columns = columnsRef.current?.querySelectorAll(".footer-column");
       if (columns) {
         gsap.fromTo(
           columns,
@@ -64,13 +70,13 @@ export default function Footer() {
             y: 0,
             duration: 0.5,
             stagger: 0.05,
-            ease: 'expo.out',
+            ease: "expo.out",
             scrollTrigger: {
               trigger: columnsRef.current,
-              start: 'top 85%',
-              toggleActions: 'play none none reverse',
+              start: "top 85%",
+              toggleActions: "play none none reverse",
             },
-          }
+          },
         );
       }
 
@@ -81,13 +87,13 @@ export default function Footer() {
         {
           opacity: 1,
           duration: 0.4,
-          ease: 'smooth',
+          ease: "smooth",
           scrollTrigger: {
             trigger: bottomBarRef.current,
-            start: 'top 95%',
-            toggleActions: 'play none none reverse',
+            start: "top 95%",
+            toggleActions: "play none none reverse",
           },
-        }
+        },
       );
     }, footerRef);
 
@@ -96,30 +102,28 @@ export default function Footer() {
       setShowBackToTop(window.scrollY > 500);
     };
 
-    window.addEventListener('scroll', handleScroll, { passive: true });
+    window.addEventListener("scroll", handleScroll, { passive: true });
 
     return () => {
       ctx.revert();
-      window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("scroll", handleScroll);
     };
   }, []);
 
   const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
+    window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
   return (
-    <footer
-      ref={footerRef}
-      className="relative bg-[#F5F5F7] pt-16 pb-8"
-    >
+    <footer ref={footerRef} className="relative bg-[#F5F5F7] pt-16 pb-8">
       {/* Top border with gradient */}
       <div
         ref={topBorderRef}
         className="absolute top-0 left-1/2 w-full max-w-[1400px] h-px origin-center"
         style={{
-          transform: 'translateX(-50%)',
-          background: 'linear-gradient(90deg, transparent 0%, #D2D2D7 20%, #D2D2D7 80%, transparent 100%)',
+          transform: "translateX(-50%)",
+          background:
+            "linear-gradient(90deg, transparent 0%, #D2D2D7 20%, #D2D2D7 80%, transparent 100%)",
         }}
       />
 
@@ -140,7 +144,7 @@ export default function Footer() {
                     <a
                       href="#"
                       className="text-sm text-[#86868B] hover:text-[#1D1D1F] transition-all duration-200 hover:translate-x-1 inline-block"
-                      style={{ transitionTimingFunction: 'var(--ease-smooth)' }}
+                      style={{ transitionTimingFunction: "var(--ease-smooth)" }}
                     >
                       {link}
                     </a>
@@ -152,14 +156,14 @@ export default function Footer() {
         </div>
 
         {/* Bottom Bar */}
-        <div
-          ref={bottomBarRef}
-          className="pt-8 border-t border-[#D2D2D7]"
-        >
+        <div ref={bottomBarRef} className="pt-8 border-t border-[#D2D2D7]">
           <div className="flex flex-col md:flex-row md:items-center md:justify-between gap-4">
             {/* Copyright */}
             <div className="text-sm text-[#86868B]">
-              <p>Copyright &copy; {new Date().getFullYear()} Apple Inc. All rights reserved.</p>
+              <p>
+                Copyright &copy; {new Date().getFullYear()} Apple Inc. Todos os
+                direitos reservados.
+              </p>
             </div>
 
             {/* Legal Links */}
@@ -168,21 +172,21 @@ export default function Footer() {
                 href="#"
                 className="text-[#86868B] hover:text-[#1D1D1F] transition-colors duration-200"
               >
-                Privacy Policy
+                Política de Privacidade
               </a>
               <span className="text-[#D2D2D7]">|</span>
               <a
                 href="#"
                 className="text-[#86868B] hover:text-[#1D1D1F] transition-colors duration-200"
               >
-                Terms of Use
+                Termos de Uso
               </a>
               <span className="text-[#D2D2D7]">|</span>
               <a
                 href="#"
                 className="text-[#86868B] hover:text-[#1D1D1F] transition-colors duration-200"
               >
-                Site Map
+                Mapa do Site
               </a>
             </div>
           </div>
@@ -194,11 +198,11 @@ export default function Footer() {
         onClick={scrollToTop}
         className={`fixed bottom-8 right-8 w-12 h-12 rounded-full bg-[#1D1D1F] text-white flex items-center justify-center shadow-lg transition-all duration-500 z-50 ${
           showBackToTop
-            ? 'opacity-100 translate-y-0'
-            : 'opacity-0 translate-y-4 pointer-events-none'
+            ? "opacity-100 translate-y-0"
+            : "opacity-0 translate-y-4 pointer-events-none"
         }`}
-        style={{ transitionTimingFunction: 'var(--ease-spring)' }}
-        aria-label="Back to top"
+        style={{ transitionTimingFunction: "var(--ease-spring)" }}
+        aria-label="Voltar ao topo"
       >
         <ChevronUp className="w-5 h-5" />
       </button>

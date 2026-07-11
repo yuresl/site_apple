@@ -1,51 +1,52 @@
-import { useEffect, useRef } from 'react';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import { Cpu, Battery, Camera, Hexagon, CircleDot } from 'lucide-react';
+import { useEffect, useRef } from "react";
+import gsap from "gsap";
+import { ScrollTrigger } from "gsap/ScrollTrigger";
+import { Cpu, Battery, Camera, Hexagon, CircleDot } from "lucide-react";
 
 gsap.registerPlugin(ScrollTrigger);
 
 const bentoCards = [
   {
     id: 1,
-    title: 'A17 Pro Chip',
-    subtitle: 'The most powerful chip ever in a smartphone',
-    cta: 'Explore performance',
+    title: "Chip A17 Pro",
+    subtitle: "O chip mais poderoso de todos os tempos em um smartphone",
+    cta: "Explorar desempenho",
     icon: Cpu,
-    size: 'large',
-    gradient: 'from-blue-50 to-indigo-50',
+    size: "large",
+    gradient: "from-blue-50 to-indigo-50",
   },
   {
     id: 2,
-    title: 'All-day Battery',
-    description: 'Up to 29 hours of video playback',
+    title: "Bateria para o dia todo",
+    description: "Até 29 horas de reprodução de vídeo",
     icon: Battery,
-    size: 'small',
-    gradient: 'from-green-50 to-emerald-50',
+    size: "small",
+    gradient: "from-green-50 to-emerald-50",
   },
   {
     id: 3,
-    title: 'Pro Camera System',
-    description: '48MP Main | Ultra Wide | Telephoto',
+    title: "Sistema de Câmera Pro",
+    description: "Principal de 48 MP | Ultra-angular | Teleobjetiva",
     icon: Camera,
-    size: 'small',
-    gradient: 'from-purple-50 to-pink-50',
+    size: "small",
+    gradient: "from-purple-50 to-pink-50",
   },
   {
     id: 4,
-    title: 'Titanium Design',
-    description: 'Aerospace-grade titanium. Remarkably light. Incredibly strong.',
+    title: "Design em Titânio",
+    description:
+      "Titânio de grau aeroespacial. Notavelmente leve. Incrivelmente forte.",
     icon: Hexagon,
-    size: 'medium',
-    gradient: 'from-gray-50 to-slate-50',
+    size: "medium",
+    gradient: "from-gray-50 to-slate-50",
   },
   {
     id: 5,
-    title: 'Action Button',
-    description: 'Your shortcut to your favorite feature',
+    title: "Botão de Ação",
+    description: "Seu atalho para seu recurso favorito",
     icon: CircleDot,
-    size: 'medium',
-    gradient: 'from-orange-50 to-amber-50',
+    size: "medium",
+    gradient: "from-orange-50 to-amber-50",
   },
 ];
 
@@ -64,17 +65,17 @@ export default function ProductShowcase() {
           opacity: 1,
           y: 0,
           duration: 0.7,
-          ease: 'expo.out',
+          ease: "expo.out",
           scrollTrigger: {
             trigger: titleRef.current,
-            start: 'top 80%',
-            toggleActions: 'play none none reverse',
+            start: "top 80%",
+            toggleActions: "play none none reverse",
           },
-        }
+        },
       );
 
       // Bento cards staggered animation
-      const cards = gridRef.current?.querySelectorAll('.bento-card-item');
+      const cards = gridRef.current?.querySelectorAll(".bento-card-item");
       if (cards) {
         gsap.fromTo(
           cards,
@@ -85,13 +86,13 @@ export default function ProductShowcase() {
             scale: 1,
             duration: 0.6,
             stagger: 0.1,
-            ease: 'expo.out',
+            ease: "expo.out",
             scrollTrigger: {
               trigger: gridRef.current,
-              start: 'top 75%',
-              toggleActions: 'play none none reverse',
+              start: "top 75%",
+              toggleActions: "play none none reverse",
             },
-          }
+          },
         );
       }
 
@@ -100,11 +101,11 @@ export default function ProductShowcase() {
         cards.forEach((card) => {
           gsap.to(card, {
             y: -40,
-            ease: 'none',
+            ease: "none",
             scrollTrigger: {
               trigger: card,
-              start: 'top bottom',
-              end: 'bottom top',
+              start: "top bottom",
+              end: "bottom top",
               scrub: 1,
             },
           });
@@ -131,7 +132,7 @@ export default function ProductShowcase() {
       rotateY: rotateY,
       translateZ: 20,
       duration: 0.3,
-      ease: 'power2.out',
+      ease: "power2.out",
     });
   };
 
@@ -142,7 +143,7 @@ export default function ProductShowcase() {
       rotateY: 0,
       translateZ: 0,
       duration: 0.5,
-      ease: 'spring(1, 0.5)',
+      ease: "spring(1, 0.5)",
     });
   };
 
@@ -158,40 +159,40 @@ export default function ProductShowcase() {
           ref={titleRef}
           className="text-section text-[#1D1D1F] text-center mb-16"
         >
-          Built for the extraordinary.
+          Feito para o extraordinário.
         </h2>
 
         {/* Bento Grid */}
         <div
           ref={gridRef}
           className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6"
-          style={{ perspective: '1000px' }}
+          style={{ perspective: "1000px" }}
         >
           {bentoCards.map((card) => {
             const Icon = card.icon;
             const gridClass =
-              card.size === 'large'
-                ? 'lg:col-span-8 lg:row-span-2'
-                : card.size === 'small'
-                ? 'lg:col-span-4'
-                : 'lg:col-span-6';
+              card.size === "large"
+                ? "lg:col-span-8 lg:row-span-2"
+                : card.size === "small"
+                  ? "lg:col-span-4"
+                  : "lg:col-span-6";
 
             return (
               <div
                 key={card.id}
                 className={`bento-card-item ${gridClass}`}
-                style={{ transformStyle: 'preserve-3d' }}
+                style={{ transformStyle: "preserve-3d" }}
               >
                 <div
                   className={`bento-card h-full bg-gradient-to-br ${card.gradient} relative overflow-hidden`}
                   onMouseMove={handleMouseMove}
                   onMouseLeave={handleMouseLeave}
-                  style={{ transformStyle: 'preserve-3d' }}
+                  style={{ transformStyle: "preserve-3d" }}
                 >
                   {/* Icon */}
                   <div
                     className="mb-4"
-                    style={{ transform: 'translateZ(30px)' }}
+                    style={{ transform: "translateZ(30px)" }}
                   >
                     <div className="w-12 h-12 rounded-xl bg-white/80 flex items-center justify-center shadow-sm">
                       <Icon className="w-6 h-6 text-[#1D1D1F]" />
@@ -199,7 +200,7 @@ export default function ProductShowcase() {
                   </div>
 
                   {/* Content */}
-                  <div style={{ transform: 'translateZ(20px)' }}>
+                  <div style={{ transform: "translateZ(20px)" }}>
                     <h3 className="text-xl md:text-2xl font-semibold text-[#1D1D1F] mb-2">
                       {card.title}
                     </h3>
@@ -235,7 +236,8 @@ export default function ProductShowcase() {
                   <div
                     className="absolute -bottom-10 -right-10 w-40 h-40 rounded-full opacity-30"
                     style={{
-                      background: 'radial-gradient(circle, rgba(0,113,227,0.2) 0%, transparent 70%)',
+                      background:
+                        "radial-gradient(circle, rgba(0,113,227,0.2) 0%, transparent 70%)",
                     }}
                   />
                 </div>
