@@ -1,11 +1,10 @@
-import path from "path"
-import react from "@vitejs/plugin-react"
-import { defineConfig } from "vite"
-import { inspectAttr } from 'kimi-plugin-inspect-react'
+import path from "node:path";
+import react from "@vitejs/plugin-react";
+import { defineConfig } from "vite";
+import { inspectAttr } from "kimi-plugin-inspect-react";
 
-// https://vite.dev/config/
 export default defineConfig({
-  base: './',
+  base: "/site_apple/",
   plugins: [inspectAttr(), react()],
   resolve: {
     alias: {
