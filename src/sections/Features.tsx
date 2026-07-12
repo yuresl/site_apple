@@ -12,7 +12,7 @@ const features = [
       "Nosso processador de sinal de imagem mais poderoso oferece detalhes, cores e clareza sem precedentes. Cada pixel é otimizado para fidelidade máxima.",
     stat: "2x",
     statLabel: "melhor desempenho em pouca luz",
-    image: "/feature-camera.jpg",
+    image: "./feature-camera.jpg",
     imagePosition: "left",
   },
   {
@@ -22,7 +22,7 @@ const features = [
       "Agora em 4K Dolby Vision. Mude automaticamente o foco para criar efeitos de profundidade com qualidade de cinema que dão vida aos seus vídeos.",
     stat: "4K",
     statLabel: "a 30 qps com Dolby Vision",
-    image: "/feature-video.jpg",
+    image: "./feature-video.jpg",
     imagePosition: "right",
   },
   {
@@ -32,7 +32,7 @@ const features = [
       "Formato de vídeo profissional para máxima fidelidade de cores e flexibilidade na pós-produção. Edite com as mesmas ferramentas usadas em Hollywood.",
     stat: "Até 4K60",
     statLabel: "Gravação ProRes",
-    image: "/feature-prores.jpg",
+    image: "./feature-prores.jpg",
     imagePosition: "left",
   },
 ];

@@ -329,7 +329,7 @@ export default function Hero() {
           style={{ transformStyle: "preserve-3d" }}
         >
           <img
-            src="/hero-product.jpg"
+            src="./hero-product.jpg"
             alt="Vision Pro"
             className="w-full h-auto rounded-3xl shadow-2xl"
             style={{

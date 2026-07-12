@@ -10,31 +10,31 @@ const galleryItems = [
     id: 1,
     title: "Luz da Manhã",
     category: "Retrato",
-    image: "/gallery-1.jpg",
+    image: "./gallery-1.jpg",
   },
   {
     id: 2,
     title: "Geometria Urbana",
     category: "Arquitetura",
-    image: "/gallery-2.jpg",
+    image: "./gallery-2.jpg",
   },
   {
     id: 3,
     title: "Hora Dourada",
     category: "Paisagem",
-    image: "/gallery-3.jpg",
+    image: "./gallery-3.jpg",
   },
   {
     id: 4,
     title: "Mundo Macro",
     category: "Detalhe",
-    image: "/gallery-4.jpg",
+    image: "./gallery-4.jpg",
   },
   {
     id: 5,
     title: "Céu Noturno",
     category: "Astrofotografia",
-    image: "/gallery-5.jpg",
+    image: "./gallery-5.jpg",
   },
 ];
 
